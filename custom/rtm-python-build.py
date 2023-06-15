@@ -26,10 +26,12 @@ class BuildIDL(Command):
         self.stubs_dir = None
         self.idl_dir = None
         self.build_lib = None
-        self.idl_path = OpenRTM_aist/RTM_IDL
+        self.idl_path = None
 
     def finalize_options(self):
         log.info('finalize_options --- start')
+        if not self.idl_path:
+            self.idl_path = OpenRTM_aist/RTM_IDL
         if not self.omniidl:
             self.omniidl = 'omniidl'
         if not self.stubs_dir:
