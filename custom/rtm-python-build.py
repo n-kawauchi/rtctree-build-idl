@@ -26,12 +26,12 @@ class BuildIDL(Command):
         self.stubs_dir = None
         self.idl_dir = None
         self.build_lib = None
-        self.idl_path = None
+        #self.idl_path = None
 
     def finalize_options(self):
         log.info('finalize_options --- start')
-        if not self.idl_path:
-            self.idl_path = OpenRTM_aist/RTM_IDL
+        #if not self.idl_path:
+        #    self.idl_path = OpenRTM_aist/RTM_IDL
         if not self.omniidl:
             self.omniidl = 'omniidl'
         if not self.stubs_dir:
@@ -39,8 +39,10 @@ class BuildIDL(Command):
             self.stubs_dir = os.path.join(self.stubs_dir, 'stubs')
         if not self.idl_dir:
             self.set_undefined_options('build', ('build_base', 'idl_dir'))
-            self.idl_dir = os.path.join(self.idl_dir, self.idl_path)
-        self.idl_src_dir = os.path.join(os.getcwd(), self.idl_path)
+            #self.idl_dir = os.path.join(self.idl_dir, self.idl_path)
+            self.idl_dir = os.path.join(self.idl_dir, 'OpenRTM_aist/RTM_IDL')
+        #self.idl_src_dir = os.path.join(os.getcwd(), self.idl_path)
+        self.idl_src_dir = os.path.join(os.getcwd(), 'OpenRTM_aist/RTM_IDL')
         self.set_undefined_options('build', ('build_lib', 'build_lib'))
 
     def compile_one_idl(self, idl_f):
