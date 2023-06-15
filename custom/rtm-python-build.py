@@ -79,7 +79,7 @@ class BuildIDL(Command):
             shutil.copy(f, self.idl_dir)
 
     def run(self):
-        self.compile_idl()
+        #self.compile_idl()
         #self.move_stubs()
         #self.copy_idl()
 
