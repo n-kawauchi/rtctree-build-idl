@@ -21,6 +21,7 @@ class BuildIDL(Command):
         ]
 
     def initialize_options(self):
+        log.info('initialize_options --- start')
         self.omniidl = None
         self.stubs_dir = None
         self.idl_dir = None
@@ -28,6 +29,7 @@ class BuildIDL(Command):
         self.idl_path = OpenRTM_aist/RTM_IDL
 
     def finalize_options(self):
+        log.info('finalize_options --- start')
         if not self.omniidl:
             self.omniidl = 'omniidl'
         if not self.stubs_dir:
@@ -78,8 +80,8 @@ class BuildIDL(Command):
 
     def run(self):
         self.compile_idl()
-        self.move_stubs()
-        self.copy_idl()
+        #self.move_stubs()
+        #self.copy_idl()
 
 
 class InstallIDL(Command):
